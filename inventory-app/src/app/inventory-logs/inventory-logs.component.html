@@ -1,0 +1,34 @@
+<!--<h2>{{product.name}} Details</h2>
+    <ul class="heroes">
+  <li *ngFor="let product of PRODUCTS">
+<div><span>id: </span>{{product.id}}</div>
+<div><span>name: </span>{{product.name}}</div>
+<div><span>price: </span>{{product.price}}</div>
+<div><span>quantity: </span>{{product.quantity}}</div>
+</li>
+</ul>-->
+<h2>My Products</h2>
+
+<ul class="heroes">
+  <li *ngFor="let product of PRODUCTS"
+    [class.selected]="product === selectedHero"
+    (click)="onSelect(product)">
+    <span class="badge">{{product.id}}</span> 
+    <div><span>name: </span>{{product.name}}</div>
+    <div><span>price: </span>{{product.price}}</div>
+    <div><span>quantity: </span>{{product.quantity}}</div>
+  </li>
+</ul>
+<app-product-details [inventory]="selectedHero"></app-product-details>
+<!---<div *ngIf="selectedHero">
+
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
+
+</div>-->
+
